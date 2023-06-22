@@ -2,7 +2,7 @@ const express = require('express')
 const User = require('../models/user')
 const passport = require('passport')
 const authenticate = require('../authenticate')
-const cors = require('cors')
+const cors = require('./cors')
 
 const usersRouter = express.Router()
 
@@ -11,11 +11,12 @@ usersRouter.get('/', cors.corsWithOptions, authenticate.verifyUser, authenticate
   User.find()
     .then((users) => {
       res.statusCode = 200
-      res.setHeader('Content-Type, application/json')
+      res.setHeader('Content-Type', 'application/json')
       res.json(users)
     }).catch(err => next(err))
 })
 
+// localhost:3000/users/signup
 usersRouter.post('/signup', cors.corsWithOptions, (req, res) => {
   User.register(
     new User({ username: req.body.username }),

@@ -12,5 +12,5 @@ const corsOptionsDelegate = (req, callback) => {
     callback(null, corsOptions) // no error, pass back options
 };
 
-exports.cors = cors() // returns a middleware function configured to set a coors header of "Access-Control-Allow-Origin" on our response object with a wildcard as it's value. meaning it allows cors for all origins // used on endpoints we want to accept all cross origin requests
-exports.corsWithOptions = cors(corsOptionsDelegate) // checks to see if one of the requests belongs to a whitelisted origin (above) // used on endpoints wher ewe only want to accept requests from whitelisted origins
+exports.cors = cors() // returns a middleware function configured to set a cors header of "Access-Control-Allow-Origin" on our response object with a wildcard as it's value. meaning it allows cors for all origins // used on endpoints we want to accept all cross origin requests
+exports.corsWithOptions = cors(corsOptionsDelegate) // checks to see if one of the requests belongs to a whitelisted origin (above) // used on endpoints where we only want to accept requests from whitelisted origins

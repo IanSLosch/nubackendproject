@@ -13,12 +13,7 @@ const cardsRouter = require('./routes/cardsRouter')
 const mongoose = require('mongoose')
 
 const url = config.mongoUrl
-const connect = mongoose.connect(url, {
-  useCreateIndex: true,
-  useFindAndModify: false,
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
+const connect = mongoose.connect(url)
 
 connect.then(() => console.log('Connected correctly to Server'))
 .catch((err) => console.log(err))
