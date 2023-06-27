@@ -3,7 +3,7 @@ const cors = require('cors')
 const whitelist = ['http://localhost:3000', 'https://localhost:3443']
 const corsOptionsDelegate = (req, callback) => {
     let corsOptions
-    console.log(req.header('Origin'))
+    console.log("cors:" + req.header('Origin'))
     if(whitelist.indexOf(req.header('Origin')) !== -1) { // if -1, means item not found
         corsOptions = { origin: true } // allows request to be accepted
     } else {

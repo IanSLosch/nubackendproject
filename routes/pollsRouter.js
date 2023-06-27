@@ -13,16 +13,16 @@ pollsRouter.route('/')
 })
 
 // http://theroundtable.com/polls/<user>/
-pollsRouter.route('/')
+pollsRouter.route('/:user')
 .options(cors.corsWithOptions, (req, res) => res.sendStatus(200))
 .get(cors.cors, authenticate.verifyUser, (req, res) => {
-  res.end('returns users current ballot status')
+  res.end(`returns ${req.params.user} current ballot status`)
 })
 .post(cors.cors, authenticate.verifyUser, (req, res) => {
-  res.end('overwrites users saved ballot with current ballot')
+  res.end(`overwrites ${req.params.user}'s saved ballot with current ballot`)
 })
 .delete(cors.cors, authenticate.verifyUser, (req, res) => {
-  res.end('emptys ballot (deletes ballot?)')
+  res.end(`emptys ${req.params.user}'s ballot (deletes ballot?)`)
 })
 
 

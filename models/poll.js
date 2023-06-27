@@ -22,5 +22,7 @@ const tallySchema = new Schema({
   total: BigInt
 })
 
-module.exports = mongoose.model('ballot', ballotSchema)
-module.exports = mongoose.model('tally', tallySchema)
+const Ballot = mongoose.model('Ballot', ballotSchema)
+const Tally = mongoose.model('Tally', tallySchema)
+module.exports = Ballot
+module.exports = Tally

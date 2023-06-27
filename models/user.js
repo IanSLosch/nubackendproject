@@ -18,4 +18,5 @@ const userSchema = new Schema({ // user and password handled by 'passportLocalMo
 })
 
 userSchema.plugin(passportLocalMongoose)
-module.exports = mongoose.model('User', userSchema)
+const User = mongoose.model('User', userSchema)
+module.exports = User
